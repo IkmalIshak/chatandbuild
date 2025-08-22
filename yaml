@@ -1,0 +1,43 @@
+users (collection)
+  └── {userId}
+        name: string
+        email: string
+        role: "admin" | "leader" | "moderator" | "member" | "guest"
+        clubs: [clubId]
+
+clubs (collection)
+  └── {clubId}
+        name: string
+        description: string
+        leaderId: userId
+        members: [userId]
+
+announcements (collection)
+  └── {announcementId}
+        title: string
+        content: string
+        createdAt: timestamp
+        createdBy: userId
+        scope: "ppmk" | clubId
+
+events (collection)
+  └── {eventId}
+        name: string
+        description: string
+        date: timestamp
+        createdBy: userId
+        clubId: string
+
+resources (collection)
+  └── {resourceId}
+        title: string
+        fileUrl: string
+        uploadedBy: userId
+        clubId: string
+
+posts (collection)
+  └── {postId}
+        content: string
+        author: userId
+        clubId: string
+        createdAt: timestamp
